@@ -14,5 +14,6 @@
 ## Chapter 3
 
 * chapter3-1: Zero value
+* chapter3-2: String
 
 ## Chapter 4
