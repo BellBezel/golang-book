@@ -9,7 +9,7 @@
 ## Chapter 2
 
 * chapter2-1: My first program
-* chapter2-2: My name id program
+* chapter2-2: My name is program
 
 ## Chapter 3
 
