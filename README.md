@@ -20,3 +20,4 @@
 ## Chapter 4
 
 * chapter4-1: Variable declaration
+* chapter4-2: Get input from keyboard
