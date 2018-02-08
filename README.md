@@ -18,3 +18,5 @@
 * chapter3-3: Floating point
 
 ## Chapter 4
+
+* chapter4-1: Variable declaration
