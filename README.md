@@ -37,3 +37,17 @@
 * chapter6-3: Multiple values can be returned
 * chapter6-4: Variadic function
 * chapter6-5: Refector FizzBuzz exercise
+
+## Chapter 7
+
+* chapter7-1: Array
+* chapter7-2: Slice
+* chapter7-3: Create slice from array
+* chapter7-4: Copy slices
+* chapter7-5: Map
+* chapter7-6: Delete map
+* chapter7-7: Avoid to check zero value
+* chapter7-8: Range: Array
+* chapter7-9: Range: Slice
+* chapter7-10: Range: Slice
+* chapter7-11: Range: String
