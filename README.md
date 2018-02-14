@@ -28,4 +28,12 @@
 * chapter5-1: For loop
 * chapter5-2: If-else condition
 * chapter5-3: Switch case condition
-* chapter5-4: Check input with random number 
+* chapter5-4: Check input with random number
+
+## Chapter 6
+
+* chapter6-1: Function
+* chapter6-2: Return types can have names
+* chapter6-3: Multiple values can be returned
+* chapter6-4: Variadic function
+* chapter6-5: Refector FizzBuzz exercise
