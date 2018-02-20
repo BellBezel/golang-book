@@ -51,3 +51,7 @@
 * chapter7-9: Range: Slice
 * chapter7-10: Range: Slice
 * chapter7-11: Range: String
+
+## Exercise
+
+* Exercise1: console-weather.go
