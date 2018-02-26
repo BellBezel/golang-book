@@ -38,9 +38,9 @@ func main() {
 	fmt.Println(can) //SD
 
 	vm.InsertCoin("T")
-	vm.InsertCoin("TW")
+	vm.InsertCoin("T")
 	fmt.Println("Inserted Money:", vm.InsertedMoney())
-	// Inserted Money: 12
+	// Inserted Money: 20
 	can = vm.SelectCC()
-	fmt.Println(can) //CC
+	fmt.Println(can) //CC, F, TW ,O
 }
