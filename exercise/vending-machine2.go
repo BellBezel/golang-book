@@ -22,7 +22,7 @@ func (m *VendingMachine)  SelectSD() string{
 
 func (m *VendingMachine)  SelectCC() string{
 	m.insertedMoney = 0
-	return "CC"
+	return "CC" + ", F, TW, O"
 }
 
 func main() {
