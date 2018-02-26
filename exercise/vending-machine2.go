@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 type VendingMachine struct {
-	insertedMoney int
+	insertedMoney 	int
+	coins			map[string]int
 }
 
 func (m VendingMachine)  InsertedMoney() int {
@@ -11,7 +12,7 @@ func (m VendingMachine)  InsertedMoney() int {
 }
 
 func (m *VendingMachine)  InsertCoin(coin string){
-	if coin == "T" {
+	/*if coin == "T" {
 		m.insertedMoney += 10
 	}
 	if coin == "F" {
@@ -22,7 +23,8 @@ func (m *VendingMachine)  InsertCoin(coin string){
 	}
 	if coin == "O" {
 		m.insertedMoney += 1
-	}
+	}*/
+	m.insertedMoney += m.coins[coin]
 }
 
 func main() {
