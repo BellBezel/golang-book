@@ -17,6 +17,12 @@ func (m *VendingMachine)  InsertCoin(coin string){
 	if coin == "F" {
 		m.insertedMoney += 5
 	}
+	if coin == "TW" {
+		m.insertedMoney += 2
+	}
+	if coin == "O" {
+		m.insertedMoney += 1
+	}
 }
 
 func main() {
@@ -25,6 +31,7 @@ func main() {
 	// Inserted Money: 0
 	vm.InsertCoin("T")
 	vm.InsertCoin("F")
+	vm.InsertCoin("TW")
 	fmt.Println("Inserted Money:", vm.InsertedMoney())
 	// Inserted Money: 10
 }
