@@ -16,17 +16,23 @@ func (m *VendingMachine)  InsertCoin(coin string){
 }
 
 func (m *VendingMachine)  SelectSD() string{
+	price := 18
+	change := m.insertedMoney - price
 	m.insertedMoney = 0
-	return "SD"
+	return "SD" + m.change(change)
 }
 
 func (m *VendingMachine)  SelectCC() string{
 	price := 12
 	change := m.insertedMoney - price
+	m.insertedMoney = 0
 	return "CC" + m.change(change)
 }
 
-func (m VendingMachine) change(c int) (change string) {
+func (m VendingMachine) change(c int) string {
+	if c == 0 {
+		return ""
+	}
 	return ", F, TW, O"
 }
 
