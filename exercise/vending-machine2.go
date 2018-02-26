@@ -3,27 +3,27 @@ package main
 import "fmt"
 
 type VendingMachine struct {
-	insertedMoney 	int
-	coins			map[string]int
-	items			map[string]int
+	insertedMoney int
+	coins         map[string]int
+	items         map[string]int
 }
 
-func (m VendingMachine)  InsertedMoney() int {
+func (m VendingMachine) InsertedMoney() int {
 	return m.insertedMoney
 }
 
-func (m *VendingMachine)  InsertCoin(coin string){
+func (m *VendingMachine) InsertCoin(coin string) {
 	m.insertedMoney += m.coins[coin]
 }
 
-func (m *VendingMachine)  SelectSD() string{
+func (m *VendingMachine) SelectSD() string {
 	price := m.items["SD"]
 	change := m.insertedMoney - price
-	m.insertedMoney = 0			// Set initial value of money
+	m.insertedMoney = 0 // Set initial value of money
 	return "SD" + m.change(change)
 }
 
-func (m *VendingMachine)  SelectCC() string{
+func (m *VendingMachine) SelectCC() string {
 	price := m.items["CC"]
 	change := m.insertedMoney - price
 	m.insertedMoney = 0
@@ -41,18 +41,22 @@ func (m VendingMachine) change(c int) string {
 		if c >= values[i] {
 			str += ", " + coins[i]
 			c -= values[i]
+			i--
 		}
 	}
 	return str
 }
 
-func (m *VendingMachine)  CoinReturn() string{
-	return "T, T, F"
+func (m *VendingMachine) CoinReturn() string {
+	coins := m.change(m.insertedMoney)
+	m.insertedMoney = 0
+	return coins[2:len(coins)]
 }
 
 func main() {
-	var coins = map[string]int{"T":10, "F":5, "TW":2, "O":1}
-	var items = map[string]int{"SD":18, "CC":12}
+	var coins = map[string]int{"T": 10, "F": 5, "TW": 2, "O": 1}
+	var items = map[string]int{"SD": 18, "CC": 12}
+
 	vm := VendingMachine{coins: coins, items: items}
 	vm.InsertCoin("T")
 	vm.InsertCoin("F")
