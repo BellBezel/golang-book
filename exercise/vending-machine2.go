@@ -28,7 +28,8 @@ func (m *VendingMachine)  InsertCoin(coin string){
 }
 
 func main() {
-	vm := VendingMachine{}
+	var coins = map[string]int{"T":10, "F":5, "TW":2, "O":1}
+	vm := VendingMachine{coins: coins}
 	fmt.Println("Inserted Money:", vm.InsertedMoney())
 	// Inserted Money: 0
 	vm.InsertCoin("T")
