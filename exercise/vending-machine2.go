@@ -16,10 +16,12 @@ func (m *VendingMachine)  InsertCoin(coin string){
 }
 
 func (m *VendingMachine)  SelectSD() string{
+	m.insertedMoney = 0
 	return "SD"
 }
 
 func (m *VendingMachine)  SelectCC() string{
+	m.insertedMoney = 0
 	return "CC"
 }
 
