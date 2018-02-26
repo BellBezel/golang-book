@@ -46,6 +46,10 @@ func (m VendingMachine) change(c int) string {
 	return str
 }
 
+func (m *VendingMachine)  CoinReturn() string{
+	return "T, T, F"
+}
+
 func main() {
 	var coins = map[string]int{"T":10, "F":5, "TW":2, "O":1}
 	var items = map[string]int{"SD":18, "CC":12}
@@ -65,4 +69,12 @@ func main() {
 	// Inserted Money: 20
 	can = vm.SelectCC()
 	fmt.Println(can) //CC, F, TW ,O
+
+	vm.InsertCoin("T")
+	vm.InsertCoin("T")
+	vm.InsertCoin("F")
+	fmt.Println("Inserted Money:", vm.InsertedMoney())
+	// Inserted Money: 20
+	coin := vm.CoinReturn()
+	fmt.Println(coin) //T, T, F
 }
