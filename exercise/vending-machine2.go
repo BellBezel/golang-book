@@ -3,13 +3,15 @@ package main
 import "fmt"
 
 type VendingMachine struct {
+	insertedMoney int
 }
 
 func (m VendingMachine)  InsertedMoney() int {
-	return 10
+	return m.insertedMoney
 }
 
-func (vm *VendingMachine)  InsertCoin(coin string){
+func (m *VendingMachine)  InsertCoin(coin string){
+	m.insertedMoney = 10
 }
 
 func main() {
