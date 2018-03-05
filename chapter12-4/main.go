@@ -25,9 +25,16 @@ func FizzBuzz(number int) string {
 		return strconv.Itoa(i)
 	} */
 
-	
+	fbTemplate := func(fbnumber int, str string) func(int) (string, bool) {
+		return func(n int) (string, bool){
+			if n%fbnumber == 0 {
+				return str, true
+			}
+			return "", false
+		}
+	}
 
-	fizzBuzzFunc := func(n int) (string, bool) {
+	/* fizzBuzzFunc := func(n int) (string, bool) {
 		if n%15 == 0 {
 			return "FizzBuzz", true
 		}
@@ -44,12 +51,12 @@ func FizzBuzz(number int) string {
 			return "Fizz", true
 		}
 		return "", false
-	}
+	} */
 
 	fbArray := [...]func(n int) (string, bool){
-		fizzBuzzFunc,
-		buzzFunc,
-		fizzFunc,
+		fbTemplate(15, "FizzBuzz"),
+		fbTemplate(5, "Buzz"),
+		fbTemplate(3, "Fizz"),
 	}
 
 	for i := 0; i < len(fbArray); i++ {
