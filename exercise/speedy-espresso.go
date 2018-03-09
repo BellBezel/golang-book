@@ -5,25 +5,46 @@ import (
 	"fmt"
 )
 
+
+/*func barista(n chan<- int) string {
+	time.Sleep(100 * time.Millisecond)
+	coffee = fmt.Sprintf("%s %s", coffee, "espresso")
+}*/
+
 func order(volumn int) (container []string) {
+
+
 	for i := 1; i <= volumn; i++ {
 		// cashier receive order
-		time.Sleep(5 * time.Millisecond)
-		coffee := fmt.Sprintf("order: %d", i)
-
+		coffee := cashier(i)
+		
 		// barista brew coffee
-		time.Sleep(100 * time.Millisecond)
-		coffee = fmt.Sprintf("%s %s", coffee, "espresso")
+		coffee = barista(coffee)
+		
 
 		// waiter serve coffee
-		time.Sleep(5 * time.Millisecond)
-		container = append(container, fmt.Sprintf("%s %s", coffee, "ready :)"))
+		container = append(container, waiter(coffee))
 	}
 	return
 }
 
+func cashier(i int) string {
+	time.Sleep(5 * time.Millisecond)
+	return fmt.Sprintf("order: %d", i)
+}
+
+func barista(n string) string {
+	time.Sleep(100 * time.Millisecond)
+	return fmt.Sprintf("%s %s", n, "espresso")
+}
+
+func waiter(coffee string) string {
+	time.Sleep(5 * time.Millisecond)
+	return fmt.Sprintf("%s %s", coffee, "ready :)")
+}
+
 func main() {
-	volumn := 100
+	volumn := 200
 	start := time.Now()
 
 	container := order(volumn)
