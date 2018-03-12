@@ -26,16 +26,16 @@ func main() {
 }
 
 type User struct {
-	FirstName string
-	LastName  string
-	Email     string
-	CreateAt  time.Time
+	FirstName string    `json:"first_name"`
+	LastName  string    `json:"last_name"`
+	Email     string    `json:"email"`
+	CreateAt  time.Time `json:"created_at"`
 }
 
 /* เข้า Postman: http://localhost:3000/
 INPUT : {
-	"FirstName": "espresso", 
-	"lastname": "longshot", 
+	"firstName": "espresso",
+	"lastname": "longshot",
 	"email": "espresso@speedy.coffee"
 }
 OUTPUT : {
@@ -43,5 +43,18 @@ OUTPUT : {
     "LastName": "longshot",
     "Email": "espresso@speedy.coffee",
     "CreateAt": "2018-03-12T10:47:50.2475768+07:00"
+}
+
+***หลังเพิ่ม `json:"first_name"` ใน struct***
+INPUT : {
+	"first_Name": "espresso",
+	"last_name": "longshot",
+	"email": "espresso@speedy.coffee"
+}
+OUTPUT : {
+    "first_name": "espresso",
+    "last_name": "longshot",
+    "email": "espresso@speedy.coffee",
+    "created_at": "2018-03-12T10:54:59.7748986+07:00"
 }
 */
