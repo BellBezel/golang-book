@@ -23,7 +23,8 @@ func sum(array []int, ch chan int) {
 	}
 	ch <- sum
 }
-// channal จะมีลักษณะการทำงานเหมือน Queue ไม่ได้เก็บค่าแบบถาวร
+
+// channel จะมีลักษณะการทำงานเหมือน Queue ไม่ได้เก็บค่าแบบถาวร
 /* OUTPUT :
 Round 1: -5 17 12
 Round 5: 17 -5 12
