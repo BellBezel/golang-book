@@ -7,21 +7,23 @@ import (
 )
 
 func Test_Get(t *testing.T) {
-	res := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/", nil)
-	HomePageHandler(res, req)
+	ts := httptest.NewServer(NewRouter())
+	defer ts.Close()
 
-	if res.Code != 200 {
-		t.Fatalf("Expected status to == 200, but got %d", res.Code)
+	res, _ := http.Get(ts.URL + "/espresso")
+
+	if res.StatusCode != 200 {
+		t.Fatalf("Expected status to == 200, but got %d", res.StatusCode)
 	}
 }
 
 func Test_Post(t *testing.T) {
-	res := httptest.NewRecorder()
-	req, _ := http.NewRequest("POST", "/", nil)
-	HomePageHandler(res, req)
+	ts := httptest.NewServer(NewRouter())
+	defer ts.Close()
 
-	if res.Code == 200 {
-		t.Fatalf("Expected status to != 200, but got %d", res.Code)
+	res, _ := http.Post(ts.URL + "/", "", nil)
+
+	if res.StatusCode == 200 {
+		t.Fatalf("Expected status to != 200, but got %d", res.StatusCode)
 	}
 }
