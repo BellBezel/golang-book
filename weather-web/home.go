@@ -3,26 +3,20 @@ package main
 import (
 	"fmt"
 	"net/http"
-
+	//"time"
 	"github.com/gorilla/mux"
+	"encoding/json"
 )
 
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
-	/*vars := mux.Vars(r)
-	name := vars["name"]
-
-	if vars["name"] == "" {
-		name = "World"
-	}
-	fmt.Fprintf(w, "Hello, %s!", name)*/
 	vars := mux.Vars(r)
-	name := vars["name"]
-	if name == "hobart" {
+	city := vars["city"]
+	if city == "hobart" {
 		fmt.Fprintln(w, "Hobart")
 		fmt.Fprintln(w, "14c shower rain")
 	}
 
-	if name == "all" {
+	if city == "all" {
 		fmt.Fprintln(w, "Hobart")
 		fmt.Fprintln(w, "14c shower rain\n")
 
@@ -38,17 +32,41 @@ func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "Bangkok")
 		fmt.Fprintln(w, "33c few clouds\n")
 	}
-
 }
 
-func UsersHandle(w http.ResponseWriter, r *http.Request) {
+//http://localhost:8882/api/v1/weather/{city}
+
+func APIget (w http.ResponseWriter, r *http.Request) {
+	res, _ := http.Get(localhost:8882/api/v1/weather/ + "hobart")
+
+	/*type User struct {
+		getCity string
+	}
+
+	type APIHandler struct{}
+		
+	func (h *APIHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+		user := new(User)
+		json.NewDecoder(r.Body).Decode(user)
+		//user.CreatedAt = time.Now()
+		
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusCreated)
+		
+		data, _ := json.Marshal(user)
+		w.Write(data)
+	}*/
+}
+
+/*func UsersHandle(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Users Page")
-}
+}*/
 
 func NewRouter() http.Handler {
 	r := mux.NewRouter()
-	r.HandleFunc("/weather/{name}", HomePageHandler).Methods("GET")
-	r.HandleFunc("/users", UsersHandle).Methods("GET")
+	r.HandleFunc("/weather/{city}", HomePageHandler).Methods("GET")
+	r.HandleFunc("/api/v1/weather/{city}", APIget).Methods("GET")
+	//r.HandleFunc("/users", UsersHandle).Methods("GET")
 	return r
 }
 
