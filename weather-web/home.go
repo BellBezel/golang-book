@@ -5,7 +5,7 @@ import (
 	"net/http"
 	//"time"
 	"github.com/gorilla/mux"
-	"encoding/json"
+	//"encoding/json"
 )
 
 func HomePageHandler(w http.ResponseWriter, r *http.Request) {
@@ -36,23 +36,26 @@ func HomePageHandler(w http.ResponseWriter, r *http.Request) {
 
 //http://localhost:8882/api/v1/weather/{city}
 
-func APIget (w http.ResponseWriter, r *http.Request) {
-	res, _ := http.Get(localhost:8882/api/v1/weather/ + "hobart")
+func APIget(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	city := vars["hobart"]
+	url := "localhost:8882/api/v1/weather/"
+	res, _ := http.Get(url + city)
 
 	/*type User struct {
 		getCity string
 	}
 
 	type APIHandler struct{}
-		
+
 	func (h *APIHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		user := new(User)
 		json.NewDecoder(r.Body).Decode(user)
 		//user.CreatedAt = time.Now()
-		
+
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusCreated)
-		
+
 		data, _ := json.Marshal(user)
 		w.Write(data)
 	}*/
